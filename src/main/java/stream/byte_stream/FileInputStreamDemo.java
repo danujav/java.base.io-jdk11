@@ -11,15 +11,16 @@ import java.io.IOException;
 
 public class FileInputStreamDemo {
     public static void main(String[] args) {
-        var file = new File("/home/danu/IdeaProjects/sample-io/" +
-                "src/main/resources/files/InputFile.txt");
+        var file = new File("src/main/resources/files/Input.txt");
         try {
-            file.createNewFile();
+            if(!file.exists()) {
+                file.createNewFile();
+            }
             var fileInputStream = new FileInputStream(file);
 
-            int character;
-            while((character = fileInputStream.read()) != -1) {
-                System.out.print((char) character);
+            int hexa;
+            while((hexa = fileInputStream.read()) != -1) {
+                System.out.print((char) hexa);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -12,18 +12,27 @@ import java.io.IOException;
 public class FileInputStreamDemo {
     public static void main(String[] args) {
         var file = new File("src/main/resources/files/Input.txt");
+        FileInputStream fileInputStream = null;
         try {
-            if(!file.exists()) {
+            if (!file.exists()) {
                 file.createNewFile();
             }
-            var fileInputStream = new FileInputStream(file);
+            fileInputStream = new FileInputStream(file);
 
             int hexa;
-            while((hexa = fileInputStream.read()) != -1) {
+            while ((hexa = fileInputStream.read()) != -1) {
                 System.out.print((char) hexa);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
+        } finally {
+            if (fileInputStream != null) {
+                try {
+                    fileInputStream.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         }
     }
 }

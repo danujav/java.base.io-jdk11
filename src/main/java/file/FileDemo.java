@@ -1,4 +1,4 @@
-/*
+package file;/*
     @author DanujaV
     @created 2/20/23 - 10:14 AM   
 */
@@ -16,8 +16,7 @@ public class FileDemo {
         directory, and determining several common attributes of
         files and directories.*/
 
-        var file = new File("/home/danu/IdeaProjects" +
-                "/sample-io/src/main/resources/files/FileDemo.txt");
+        var file = new File("src/main/resources/files/FileDemo.txt");
         try {
             var isCreated = file.createNewFile();
             System.out.println("File isCreated: " + isCreated);

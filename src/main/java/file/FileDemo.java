@@ -17,8 +17,11 @@ public class FileDemo {
         files and directories.*/
 
         var file = new File("src/main/resources/files/FileDemo.txt");
+        boolean isCreated = false;
         try {
-            var isCreated = file.createNewFile();
+            if(!file.exists()) {
+                isCreated = file.createNewFile();
+            }
             System.out.println("File isCreated: " + isCreated);
         } catch (IOException e) {
             throw new RuntimeException(e);

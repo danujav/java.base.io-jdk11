@@ -1,4 +1,4 @@
-/*
+package file;/*
     @author DanujaV
     @created 2/20/23 - 10:25 AM   
 */
@@ -18,8 +18,10 @@ public class FileDescriptorDemo {
         byte[] buffer = {68, 65, 78, 85};
 
         try{
-            var file = new File("/home/danu/IdeaProjects/sample-io" +
-                    "/src/main/resources/files/DescriptorFileDemo.txt");
+            var file = new File("src/main/resources/files/FileDescriptorDemo.txt");
+            if(!file.exists()) {
+                file.createNewFile();
+            }
             out = new FileOutputStream(file);
 
             // This getFD() method is called before closing the output stream

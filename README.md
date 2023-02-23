@@ -14,6 +14,8 @@
 ##### A stream has always been connected to either a source or a destination.
 ![IO class Diagram.Streams.png](src/main/resources/readme/IO%20class%20Diagram.Streams.png)
 
+
+
 > #### 1. Character Stream
 ###### Use the Java Classes in the following java.base.io package to `read or write` your data as a `Character Stream(Sequence of data)`.
 
@@ -22,6 +24,8 @@
 ---
 
 ![IO class Diagram.Writer.png](src/main/resources/readme/IO%20class%20Diagram.Writer.png)
+
+
 
 > #### 2. Byte Stream
 ###### Use the Java Classes in the following java.base.io package to `Input or Output` your data as a `Byte Stream(Sequence of data)`.

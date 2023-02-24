@@ -31,13 +31,24 @@ public class ObjectInputStreamDemo {
             System.out.println(o);*/
 
 
-            System.out.println(ois.available());    //return the number of byte that input file contain
+           /* System.out.println(ois.available());    //return the number of byte that input file contain
             ois.readByte(); // read one bye per every readByte() method calling
             System.out.println(ois.available());
             ois.readByte();
-            System.out.println(ois.available());
+            System.out.println(ois.available());*/
+
+
+            // we need to fetch order to how we wrote data through output stream
+            System.out.println(ois.readInt());
+            System.out.println(Arrays.toString((int[])ois.readObject()));
+            System.out.println(ois.readObject());
+            System.out.println(ois.readUTF());
+            System.out.println(ois.readBoolean());
+            System.out.println(ois.readInt());
 
         } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }

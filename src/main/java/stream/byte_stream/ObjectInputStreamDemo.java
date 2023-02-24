@@ -31,8 +31,13 @@ public class ObjectInputStreamDemo {
             System.out.println(o);*/
 
 
+            System.out.println(ois.available());    //return the number of byte that input file contain
+            ois.readByte(); // read one bye per every readByte() method calling
+            System.out.println(ois.available());
+            ois.readByte();
+            System.out.println(ois.available());
 
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }

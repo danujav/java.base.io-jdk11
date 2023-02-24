@@ -7,10 +7,12 @@ package lk.ijse.customermanage.dto;
 
 import lombok.*;
 
+import java.io.Serializable;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Customer {
+public class Customer implements Serializable {
     private Integer id;
     private String name;
     private String address;

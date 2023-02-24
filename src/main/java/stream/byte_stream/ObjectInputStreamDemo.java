@@ -18,7 +18,7 @@ public class ObjectInputStreamDemo {
             FileInputStream fis = new FileInputStream("src/main/resources/files/ObjectBackup.tmp");
             ObjectInputStream ois = new ObjectInputStream(fis);
 
-            int i = ois.readInt();
+            /*int i = ois.readInt();
             System.out.println(i);
 
             int[] ar = (int[])ois.readObject();
@@ -28,7 +28,9 @@ public class ObjectInputStreamDemo {
             System.out.println(date);
 
             Object o = ois.readObject();    //Illegal
-            System.out.println(o);
+            System.out.println(o);*/
+
+
 
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);

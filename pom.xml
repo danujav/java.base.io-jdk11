@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>notepad-editor</module>
+        <module>image-read-write</module>
     </modules>
 
     <properties>

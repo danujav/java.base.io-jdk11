@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="customer-manage" />
         <module name="notepad-editor" />
+        <module name="image-read-write" />
       </profile>
     </annotationProcessing>
   </component>

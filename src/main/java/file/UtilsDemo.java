@@ -5,6 +5,7 @@ package file;
     @created 2/25/23 - 4:23 PM   
 */
 
+import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
@@ -34,5 +35,12 @@ public class UtilsDemo {
 
         System.out.println(System.getProperty("user_name"));
         System.out.println(System.getProperty("ijse"));
+
+        System.out.println("\n************************************************");
+
+        Map<String, String> osEnv = System.getenv();
+        for(Object key : osEnv.keySet()) {
+            System.out.println(key + " = " + osEnv.get(key));
+        }
     }
 }

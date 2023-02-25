@@ -8,7 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="customer-manage" />
-        <module name="sample-io" />
+        <module name="notepad-editor" />
       </profile>
     </annotationProcessing>
   </component>

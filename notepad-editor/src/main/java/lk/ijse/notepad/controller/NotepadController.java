@@ -16,11 +16,13 @@ public class NotepadController {
     private JFXTextArea txtArea;
 
     @FXML
-    void itmSaveOnAction(ActionEvent event) throws IOException {
+    void itmSaveOnAction(ActionEvent event) {
         String msg = txtArea.getText();
 
         File file = new File("/home/danu/Desktop/abc.txt");
-        try {
+
+        //through character stream
+        /*try {
             if(!file.exists()) {
                 file.createNewFile();
             }
@@ -31,6 +33,16 @@ public class NotepadController {
             writer.close();
         } catch (FileNotFoundException | UnsupportedEncodingException e) {
             throw new RuntimeException(e);
+        }*/
+
+        //through byte stream
+        try {
+            FileOutputStream fos = new FileOutputStream(file); byte[] bytes = msg.getBytes();
+            fos.write(bytes);
+            fos.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+
     }
 }

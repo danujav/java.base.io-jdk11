@@ -7,10 +7,7 @@ package lk.ijse.customermanage.db;
 
 import lk.ijse.customermanage.dto.Customer;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 
 public class DataStore {
     public static boolean writeObject(Customer customer) {
@@ -25,5 +22,21 @@ public class DataStore {
             throw new RuntimeException(e);
         }
         return false;
+    }
+
+    public static Customer readObject() {
+        try {
+            FileInputStream fis = new FileInputStream("/home/danu/IdeaProjects/sample-io/customer-manage/src/main/resources/customer.tmp");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+
+            Customer c1 = (Customer) ois.readObject();
+            System.out.println(c1);
+            Customer c2 = (Customer) ois.readObject();
+            System.out.println(c2);
+
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
     }
 }

@@ -6,6 +6,7 @@ package lk.ijse.customermanage.controller;
 */
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import lk.ijse.customermanage.db.DataStore;
 import lk.ijse.customermanage.dto.Customer;
@@ -30,6 +31,9 @@ public class CustomerManageController {
         );
 
         boolean isAdded = DataStore.writeObject(customer);
+        if(isAdded) {
+            new Alert(Alert.AlertType.CONFIRMATION, "wrote!").show();
+        }
     }
 
 }

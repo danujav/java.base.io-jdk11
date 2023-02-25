@@ -8,6 +8,7 @@ package lk.ijse.notepad.controller;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.stage.FileChooser;
 
 import java.io.*;
 
@@ -36,8 +37,16 @@ public class NotepadController {
         }*/
 
         //through byte stream
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("save a file");
+        File saveFile = fileChooser.showSaveDialog(txtArea.getScene().getWindow());
+
+        if(saveFile == null) return;
+
         try {
-            FileOutputStream fos = new FileOutputStream(file); byte[] bytes = msg.getBytes();
+            FileOutputStream fos = new FileOutputStream(saveFile, false);
+            byte[] bytes = msg.getBytes();
             fos.write(bytes);
             fos.close();
         } catch (IOException e) {

@@ -56,6 +56,14 @@ public class FileDemo {
         var isSetReadOnly = file.setReadOnly();
         System.out.println("isSetReadOnly: " + isSetReadOnly);
 
+        File file1 = new File("/home/danu/Desktop" + File.separator + "danu.pdf");
+        System.out.println(file1);
+
+        File file2 = new File(new File("/home/danu/Desktop"), "danu.pdf");
+        System.out.println(file2);
+
+        System.out.println("getName(): " + file1.getName());
+        System.out.println("absolute path: " + file1.getAbsolutePath());
 
     }
 }

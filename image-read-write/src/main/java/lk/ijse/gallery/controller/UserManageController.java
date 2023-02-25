@@ -5,6 +5,7 @@ package lk.ijse.gallery.controller;
     @created 2/26/23 - 12:29 AM   
 */
 
+import com.google.common.io.Files;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
@@ -12,7 +13,12 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
+import java.util.Base64;
 
 public class UserManageController {
     @FXML
@@ -22,12 +28,26 @@ public class UserManageController {
     void btnUploadOnAction(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select a photo");
-        File file = fileChooser.showOpenDialog(new Stage());
+        File imgFile = fileChooser.showOpenDialog(new Stage());
 
-        Image image = new Image(file.toURI().toString());
+        Image image = new Image(imgFile.toURI().toString());
         imgDP.setImage(image);
 
+        try {
+            BufferedImage img = ImageIO.read(imgFile);
+            ByteArrayOutputStream bao = new ByteArrayOutputStream();
 
-        System.out.println("file: " + file);
+            //put guava dependency for this
+            System.out.println("File extension: " + Files.getFileExtension(String.valueOf(imgFile)));
+
+            ImageIO.write(img, Files.getFileExtension(String.valueOf(imgFile)), bao);
+            byte[] bytes = bao.toByteArray();
+
+            byte[] encode = Base64.getEncoder().encode(bytes);
+            String s = new String(encode);
+            System.out.println(s);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

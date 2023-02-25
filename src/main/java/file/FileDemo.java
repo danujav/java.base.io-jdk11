@@ -65,5 +65,7 @@ public class FileDemo {
         System.out.println("getName(): " + file1.getName());
         System.out.println("absolute path: " + file1.getAbsolutePath());
 
+        System.out.println("delete(): " + new File("/home/danu/Desktop/java.png").delete());
+
     }
 }

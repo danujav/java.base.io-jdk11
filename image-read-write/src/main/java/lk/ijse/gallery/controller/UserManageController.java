@@ -44,8 +44,8 @@ public class UserManageController {
             byte[] bytes = bao.toByteArray();
 
             byte[] encode = Base64.getEncoder().encode(bytes);
-            String s = new String(encode);
-            System.out.println(s);
+            String base64 = new String(encode);
+            System.out.println("base64: " + base64);    //you can save this in your DB if you want
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

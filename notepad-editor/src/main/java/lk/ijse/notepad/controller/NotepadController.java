@@ -20,12 +20,11 @@ public class NotepadController {
     private JFXTextArea txtArea;
     @FXML
     private AnchorPane root;
-    @FXML
-    private MenuBar menu;
 
     @FXML
     void itmSaveOnAction(ActionEvent event) {
         String msg = txtArea.getText();
+
         //through character stream
         /*try {
             if(!file.exists()) {

@@ -17,6 +17,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Base64;
 
@@ -44,10 +45,26 @@ public class UserManageController {
             byte[] bytes = bao.toByteArray();
 
             byte[] encode = Base64.getEncoder().encode(bytes);
+
             String base64 = new String(encode);
             System.out.println("base64: " + base64);    //you can save this in your DB if you want
+
+            saveImageBase64ValueInTextFile(imgFile, encode);
+
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void saveImageBase64ValueInTextFile(File imgFile, byte[] base64) throws IOException {
+        String imgNameWithoutExtension = Files.getNameWithoutExtension(String.valueOf(imgFile));
+        File file = new File("/home/danu/IdeaProjects/sample-io/image-read-write/src/main/resources/files/" + imgNameWithoutExtension + ".txt");
+
+        if (!file.exists()) file.createNewFile();
+
+        FileOutputStream fos = new FileOutputStream(file);
+        fos.write(base64);
+        fos.close();
     }
 }
